@@ -194,11 +194,66 @@ footer {
 
 .reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
+    transform: translateY(60px) scale(0.98);
+    transition: all 1s cubic-bezier(0.25, 1, 0.3, 1);
+    will-change: transform, opacity;
 }
 
 .reveal.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
+}
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    z-index: -1;
+    transform: translateY(0px);
+    transition: transform 0.1s linear;
+}
+    :root {
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 32px;
+    --space-lg: 64px;
+    --space-xl: 120px;
+}
+.image-showcase {
+    position: relative;
+    background: url('your-image.jpg') center/cover no-repeat;
+}
+
+.image-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.5);
+    text-align: center;
+}
+    .hero {
+    position: relative;
+    overflow: hidden;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
 }
